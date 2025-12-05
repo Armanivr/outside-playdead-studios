@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: bd544dea224d86143a6645005ce6eff1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4469480982246251640
+    second: Cult member idle_0
+  - first:
+      213: 7951759546924581879
+    second: Cult member idle_1
+  - first:
+      213: 820350238822544157
+    second: Cult member idle_2
+  - first:
+      213: -7370018747917704957
+    second: Cult member idle_3
+  - first:
+      213: 6582168778176839668
+    second: Cult member idle_4
+  - first:
+      213: -4180208717296820637
+    second: Cult member idle_5
+  - first:
+      213: 2874064304961432499
+    second: Cult member idle_6
+  - first:
+      213: 3996114171910108863
+    second: Cult member idle_7
+  - first:
+      213: 7007882891671590754
+    second: Cult member idle_8
+  - first:
+      213: -827417714415567057
+    second: Cult member idle_9
+  - first:
+      213: -371816203040774313
+    second: Cult member idle_10
+  - first:
+      213: -44330486912140421
+    second: Cult member idle_11
+  - first:
+      213: 8472275913379685888
+    second: Cult member idle_12
+  - first:
+      213: -7045553263221124374
+    second: Cult member idle_13
+  - first:
+      213: 3709317700732936322
+    second: Cult member idle_14
+  - first:
+      213: -2128722061809237286
+    second: Cult member idle_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cult member idle_0
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 2145
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88329da1ab639f1c0800000000000000
+      internalID: -4469480982246251640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_1
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 2145
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3c2cd7d235a5e60800000000000000
+      internalID: 7951759546924581879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_2
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 2145
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13bc602238726b00800000000000000
+      internalID: 820350238822544157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_3
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1745
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 301656e2ffe68b990800000000000000
+      internalID: -7370018747917704957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_4
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1747
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ffb5e241af885b50800000000000000
+      internalID: 6582168778176839668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_5
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1747
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e188eb15aecf5c0800000000000000
+      internalID: -4180208717296820637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_6
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 1347
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb2bd6024ab2e720800000000000000
+      internalID: 2874064304961432499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_7
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 1347
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb63b92caac057730800000000000000
+      internalID: 3996114171910108863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_8
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 1345
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2675f915c50014160800000000000000
+      internalID: 7007882891671590754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_9
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 945
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ff46bf8fb6484f0800000000000000
+      internalID: -827417714415567057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_10
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 945
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7572500222b07daf0800000000000000
+      internalID: -371816203040774313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_11
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 945
+        width: 64
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7bb1e238a1826ff0800000000000000
+      internalID: -44330486912140421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_12
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 547
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00628102e02939570800000000000000
+      internalID: 8472275913379685888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_13
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 547
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae25c93d2aa293e90800000000000000
+      internalID: -7045553263221124374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_14
+      rect:
+        serializedVersion: 2
+        x: 1468
+        y: 547
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2806147cbc42a7330800000000000000
+      internalID: 3709317700732936322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cult member idle_15
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 147
+        width: 64
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2c25030924572e0800000000000000
+      internalID: -2128722061809237286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Cult member idle_0: -4469480982246251640
+      Cult member idle_1: 7951759546924581879
+      Cult member idle_10: -371816203040774313
+      Cult member idle_11: -44330486912140421
+      Cult member idle_12: 8472275913379685888
+      Cult member idle_13: -7045553263221124374
+      Cult member idle_14: 3709317700732936322
+      Cult member idle_15: -2128722061809237286
+      Cult member idle_2: 820350238822544157
+      Cult member idle_3: -7370018747917704957
+      Cult member idle_4: 6582168778176839668
+      Cult member idle_5: -4180208717296820637
+      Cult member idle_6: 2874064304961432499
+      Cult member idle_7: 3996114171910108863
+      Cult member idle_8: 7007882891671590754
+      Cult member idle_9: -827417714415567057
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
