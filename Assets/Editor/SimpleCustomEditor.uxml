@@ -1,0 +1,6 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Label text="OUTSIDE" name="gameTitle" enabled="true" style="-unity-text-align: middle-center; white-space: normal; text-overflow: clip; left: auto; position: relative; top: 267px; right: auto; bottom: auto; font-size: 40px; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;); height: 80px; width: 381px; align-self: center; align-content: auto; align-items: auto;" />
+    <engine:Button text="PLAY" name="Button" style="top: 300px; right: auto; left: auto; align-items: center; align-self: center; width: 325px; height: 70px;" />
+    <engine:Button text="HOW TO PLAY" name="Button" style="top: 300px; right: auto; left: auto; align-items: center; align-self: center; width: 325px; height: 70px;" />
+    <engine:Button text="CREDITS" name="Button" style="top: 300px; right: auto; left: auto; align-items: center; align-self: center; width: 325px; height: 70px;" />
+</engine:UXML>
