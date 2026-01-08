@@ -5,7 +5,7 @@ public class UIController : MonoBehaviour
 {
     public void OnPlayClick() 
     {
-        SceneManager.LoadScene("gameScene");
+        SceneManager.LoadScene("IntroScene");
     }
 
     public void OnQuitClick()
