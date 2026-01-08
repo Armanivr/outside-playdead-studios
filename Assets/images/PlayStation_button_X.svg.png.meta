@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ef1b0bdc0207ff34fa6d9398ed445bbf
+guid: 7385182765b9e4c40aac13c65f33dd02
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3574554974248258010
-    second: outsidelogo 5_0
+      213: 978639533446984860
+    second: PlayStation_button_X.svg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: outsidelogo 5_0
+      name: PlayStation_button_X.svg_0
       rect:
         serializedVersion: 2
-        x: 474
-        y: 71
-        width: 973
-        height: 971
+        x: 0
+        y: 0
+        width: 1200
+        height: 1200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ad94c2e6fce5b9130800000000000000
-      internalID: 3574554974248258010
+      spriteID: c94f24a7873d49d00800000000000000
+      internalID: 978639533446984860
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      outsidelogo 5_0: 3574554974248258010
+      PlayStation_button_X.svg_0: 978639533446984860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
