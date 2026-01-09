@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 451034093}
   - component: {fileID: 451034092}
   m_Layer: 5
-  m_Name: CharacterHead
+  m_Name: JamalHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -334,7 +334,7 @@ Animator:
   m_GameObject: {fileID: 451034090}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96eb8f11a18613340b66276081e5bd27, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -366,7 +366,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -463,6 +463,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1008518229
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1008518230}
+  - component: {fileID: 1008518233}
+  - component: {fileID: 1008518232}
+  - component: {fileID: 1008518231}
+  m_Layer: 5
+  m_Name: LucasHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1008518230
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008518229}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948465658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -303, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1008518231
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008518229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89ea7d06185487e4eaeef12dfa0a065e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1008518232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008518229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1008518233
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008518229}
+  m_CullTransparentMesh: 1
 --- !u!1 &1212543955
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +664,104 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1263884812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263884813}
+  - component: {fileID: 1263884816}
+  - component: {fileID: 1263884815}
+  - component: {fileID: 1263884814}
+  m_Layer: 5
+  m_Name: QuintenHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1263884813
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263884812}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948465658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -303, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1263884814
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263884812}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 25daa61178ccbd9478cb9eebcfea7dfe, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1263884815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263884812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1263884816
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263884812}
+  m_CullTransparentMesh: 1
 --- !u!1 &1501055918
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +898,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501055918}
   m_CullTransparentMesh: 1
+--- !u!1 &1627893626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627893627}
+  - component: {fileID: 1627893629}
+  - component: {fileID: 1627893628}
+  m_Layer: 5
+  m_Name: NarratorHead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1627893627
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627893626}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1948465658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -303, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1627893628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627893626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -377624710083115330, guid: b3a6e333b747b964ea25819c41ab66c3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1627893629
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627893626}
+  m_CullTransparentMesh: 1
 --- !u!1 &1948465657
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,7 +1005,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 451034091}
+  - {fileID: 1263884813}
+  - {fileID: 1008518230}
   - {fileID: 1501055919}
+  - {fileID: 1627893627}
   m_Father: {fileID: 1212543959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -755,101 +1029,136 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 1501055920}
-  characterHeadImage: {fileID: 451034093}
+  characters:
+  - characterName: Jamal
+    headImage: {fileID: 451034093}
+    headAnimator: {fileID: 451034092}
+  - characterName: Lucas
+    headImage: {fileID: 1008518232}
+    headAnimator: {fileID: 1008518231}
+  - characterName: Quinten
+    headImage: {fileID: 1263884815}
+    headAnimator: {fileID: 1263884814}
+  - characterName: Narrator
+    headImage: {fileID: 1627893628}
+    headAnimator: {fileID: 0}
   dialogueLines:
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: Come on, dude, you need to get out sometimes!
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: You barely do anything except play your waifu games
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: Yeah man, you're younger than me, but have spent more time inside
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: Oh shut up guys, you know I hate not being inside!
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: Exactly, that's your problem
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: Aaaaaand...
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: That's exactly why Quinten and I scheduled a hiking trip in Sweden!
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: Yup
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: Wait...WHAt?!
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: Come on, don't be like that, Lucas...
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: Yeah bro! Just think about it, the fresh air, the tall trees and the whisteling
       birds...
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: hunting for food, no internet and the best of course, no waifu's
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: N-no waifu's?
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: Uh huh, no waifu's
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: '*gulp*'
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: uhm Quinten, Jamal, I think you'd better do without me. I'll just stay
       here and play my anime games
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: ...
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: ...
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: H-hey...w-what are you guys- NOOOOOO!!!!
   - speaker:
       characterName: Narrator
-      headSprite: {fileID: 6582168778176839668, guid: bd544dea224d86143a6645005ce6eff1, type: 3}
+      headImage: {fileID: 1627893628}
+      headAnimator: {fileID: 0}
     text: And that's how our protagonists found their way to a forest in Sweden...named...Dimskog
   - speaker:
       characterName: Jamal
-      headSprite: {fileID: -8638888237387015369, guid: dd44870cbc41142429c71c4282941610, type: 3}
+      headImage: {fileID: 451034093}
+      headAnimator: {fileID: 451034092}
     text: Here we are Lucas, Dimskog. Ready to go?
   - speaker:
       characterName: Quinten
-      headSprite: {fileID: -7965436680686560216, guid: 439a440acb85d4547adb7e387103ed50, type: 3}
+      headImage: {fileID: 1263884815}
+      headAnimator: {fileID: 1263884814}
     text: You can take the lead, Lucas. Jamal and I'll follow you. Explore a little...
   - speaker:
       characterName: Lucas
-      headSprite: {fileID: -313279765847826685, guid: 23a0f21f1a83e674c8594c338ad20e63, type: 3}
+      headImage: {fileID: 1008518232}
+      headAnimator: {fileID: 1008518231}
     text: I hate you guys...
   nextSceneName: GameScene
 --- !u!114 &1948465660
