@@ -21,22 +21,22 @@ public class DialogueManager : MonoBehaviour
     }
 
     [Header("UI Elements")]
-    public TextMeshProUGUI dialogueText;
+    public TextMeshProUGUI dialogueText;  // The text box
 
     [Header("Characters")]
     public Character[] characters;    // All characters in the scene
 
     [Header("Dialogue Data")]
-    public DialogueLine[] dialogueLines;
+    public DialogueLine[] dialogueLines;  // Add your dialogue lines here
 
     [Header("Scene Settings")]
-    public string nextSceneName;
+    public string nextSceneName;          // Scene to load after dialogue ends
 
-    private int currentLine = 0;
+    private int currentLine = 0;          // Tracks which line we're on
 
     void Start()
     {
-        // Make sure all heads are off at the start
+        // Turn off all heads at the start
         foreach (var c in characters)
         {
             if (c.headImage != null)
@@ -62,10 +62,14 @@ public class DialogueManager : MonoBehaviour
             if (dialogueText != null)
                 dialogueText.text = "";
 
+            // Turn off all heads
             foreach (var c in characters)
+            {
                 if (c.headImage != null)
                     c.headImage.gameObject.SetActive(false);
+            }
 
+            // Load the next scene if assigned
             if (!string.IsNullOrEmpty(nextSceneName))
                 SceneManager.LoadScene(nextSceneName);
 
@@ -95,6 +99,12 @@ public class DialogueManager : MonoBehaviour
             {
                 line.speaker.headImage.gameObject.SetActive(true);
                 Debug.Log("Enabled: " + line.speaker.characterName);
+            }
+
+            // Play talking animation if assigned
+            if (line.speaker.headAnimator != null)
+            {
+                line.speaker.headAnimator.Play("Talking"); // Make sure all animators have a "Talking" state
             }
         }
 
