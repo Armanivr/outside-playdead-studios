@@ -3151,10 +3151,6 @@ MonoBehaviour:
   enemyPrefab: {fileID: 7261554199619050834, guid: e569fc0d59ea22d4d8d22a86a6369e8a, type: 3}
   spawnPoint: {fileID: 1869623549}
   quickTimeUI: {fileID: 564654311}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &269342187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,6 +3169,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+    playerMovement: {fileID: 1378214297}
 --- !u!224 &269342188
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3230,18 +3227,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269342187}
   m_CullTransparentMesh: 1
-=======
-  playerMovement: {fileID: 1378214297}
->>>>>>> Stashed changes
-=======
-  playerMovement: {fileID: 1378214297}
->>>>>>> Stashed changes
-=======
-  playerMovement: {fileID: 1378214297}
->>>>>>> Stashed changes
-=======
-  playerMovement: {fileID: 1378214297}
->>>>>>> Stashed changes
 --- !u!1 &289038838
 GameObject:
   m_ObjectHideFlags: 0
@@ -6243,22 +6228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1283bbd2745574f448d9cf91c8431baf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  timeLimit: 1.5
-  requiredSuccesses: 10
-=======
   timeLimit: 3
   requiredSuccesses: 3
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
   timerFillImage: {fileID: 1969161113}
   playerMovement: {fileID: 0}
   buttonIconImage: {fileID: 549187664}
@@ -15941,10 +15912,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 --- !u!1 &1499185370
 GameObject:
   m_ObjectHideFlags: 0
@@ -16123,14 +16090,6 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 --- !u!1 &1502273393
 GameObject:
   m_ObjectHideFlags: 0
@@ -22748,6 +22707,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1970205857}
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 540455879}
@@ -22862,7 +22822,7 @@ SceneRoots:
   - {fileID: 1958474724}
   - {fileID: 1692056205}
   - {fileID: 1502273395}
-  - {fileID: 139662424}
+  - {fileID: 1515272924}
   - {fileID: 1563401374}
   - {fileID: 1360639996}
   - {fileID: 752859889}
@@ -22982,20 +22942,4 @@ SceneRoots:
   - {fileID: 1869623549}
   - {fileID: 1172922507}
   - {fileID: 1252134003}
-<<<<<<< Updated upstream
-  - {fileID: 694444658}
-=======
-  - {fileID: 1970205857}
-  - {fileID: 5649226467228701848}
   - {fileID: 1515272924}
-  - {fileID: 4639344672668507204}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
