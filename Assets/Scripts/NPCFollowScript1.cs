@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class NPCFollowScript : MonoBehaviour
+public class NPCFollowScript1 : MonoBehaviour
 {
     [Header("Follow Settings")]
     [SerializeField] private float distanceInFront = 2f;  // NPC stays ahead if player is behind
