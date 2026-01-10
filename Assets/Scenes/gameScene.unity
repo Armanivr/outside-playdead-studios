@@ -3152,6 +3152,8 @@ MonoBehaviour:
   spawnPoint: {fileID: 1869623549}
   quickTimeUI: {fileID: 564654311}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &269342187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,6 +3229,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269342187}
   m_CullTransparentMesh: 1
+=======
+  playerMovement: {fileID: 1378214297}
+>>>>>>> Stashed changes
+=======
+  playerMovement: {fileID: 1378214297}
+>>>>>>> Stashed changes
 =======
   playerMovement: {fileID: 1378214297}
 >>>>>>> Stashed changes
@@ -6237,6 +6245,12 @@ MonoBehaviour:
 =======
   timeLimit: 3
   requiredSuccesses: 3
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   timerFillImage: {fileID: 1969161113}
   playerMovement: {fileID: 0}
@@ -15921,6 +15935,8 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1499185370
 GameObject:
   m_ObjectHideFlags: 0
@@ -16099,6 +16115,10 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 --- !u!1 &1502273393
@@ -22959,4 +22979,10 @@ SceneRoots:
   - {fileID: 5649226467228701848}
   - {fileID: 1515272924}
   - {fileID: 4639344672668507204}
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
