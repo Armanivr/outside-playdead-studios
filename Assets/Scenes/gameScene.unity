@@ -3154,6 +3154,7 @@ MonoBehaviour:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &269342187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3229,6 +3230,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269342187}
   m_CullTransparentMesh: 1
+=======
+  playerMovement: {fileID: 1378214297}
+>>>>>>> Stashed changes
 =======
   playerMovement: {fileID: 1378214297}
 >>>>>>> Stashed changes
@@ -6247,6 +6251,9 @@ MonoBehaviour:
   requiredSuccesses: 3
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -15937,6 +15944,7 @@ Transform:
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 --- !u!1 &1499185370
 GameObject:
   m_ObjectHideFlags: 0
@@ -16115,6 +16123,8 @@ MonoBehaviour:
   moveSpeed: 5
   animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -22981,6 +22991,9 @@ SceneRoots:
   - {fileID: 4639344672668507204}
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
