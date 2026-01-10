@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 106ac7dacb9efab43837ef5d99909dd6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2310495075437826223
+    second: Character 2 running_0
+  - first:
+      213: -3483987300358965232
+    second: Character 2 running_1
+  - first:
+      213: 2823364386786897146
+    second: Character 2 running_2
+  - first:
+      213: -4691986263589635646
+    second: Character 2 running_3
+  - first:
+      213: -6909889494949912085
+    second: Character 2 running_4
+  - first:
+      213: -8795309627657634403
+    second: Character 2 running_5
+  - first:
+      213: 7248959559254629258
+    second: Character 2 running_6
+  - first:
+      213: 862663150956140742
+    second: Character 2 running_7
+  - first:
+      213: 7159231200894919621
+    second: Character 2 running_8
+  - first:
+      213: 204758530226657354
+    second: Character 2 running_9
+  - first:
+      213: 2241613088796744383
+    second: Character 2 running_10
+  - first:
+      213: 8712246800942344454
+    second: Character 2 running_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Character 2 running_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 329
+        width: 96
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0d2c29707801020800000000000000
+      internalID: 2310495075437826223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 329
+        width: 92
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50714284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 018b120620466afc0800000000000000
+      internalID: -3483987300358965232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_2
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 343
+        width: 110
+        height: 124
+      alignment: 9
+      pivot: {x: 0.5, y: 0.57258064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afcebe173fa9e2720800000000000000
+      internalID: 2823364386786897146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 329
+        width: 92
+        height: 138
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51449275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c93abb3a57b2eeb0800000000000000
+      internalID: -4691986263589635646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_4
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 169
+        width: 64
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50714284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be1ae405d142b10a0800000000000000
+      internalID: -6909889494949912085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_5
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 169
+        width: 90
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9db4e14e78c0f580800000000000000
+      internalID: -8795309627657634403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_6
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 169
+        width: 92
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b5b80005a799460800000000000000
+      internalID: 7248959559254629258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 169
+        width: 90
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50714284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c85f81b09bc8fb00800000000000000
+      internalID: 862663150956140742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 23
+        width: 108
+        height: 126
+      alignment: 9
+      pivot: {x: 0.5, y: 0.56349206}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c32c3298d2ba5360800000000000000
+      internalID: 7159231200894919621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_9
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 9
+        width: 96
+        height: 138
+      alignment: 9
+      pivot: {x: 0.5, y: 0.51449275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4814e26cc277d200800000000000000
+      internalID: 204758530226657354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_10
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 9
+        width: 64
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50714284}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fba98994a3fcb1f10800000000000000
+      internalID: 2241613088796744383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 2 running_11
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 9
+        width: 86
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609a3b55e4e18e870800000000000000
+      internalID: 8712246800942344454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2cacb03817879b6408061168e1e92ef6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Character 2 running_0: 2310495075437826223
+      Character 2 running_1: -3483987300358965232
+      Character 2 running_10: 2241613088796744383
+      Character 2 running_11: 8712246800942344454
+      Character 2 running_2: 2823364386786897146
+      Character 2 running_3: -4691986263589635646
+      Character 2 running_4: -6909889494949912085
+      Character 2 running_5: -8795309627657634403
+      Character 2 running_6: 7248959559254629258
+      Character 2 running_7: 862663150956140742
+      Character 2 running_8: 7159231200894919621
+      Character 2 running_9: 204758530226657354
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

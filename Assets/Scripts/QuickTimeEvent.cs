@@ -23,6 +23,9 @@ public class QuickTimeEvent : MonoBehaviour
     [Header("UI Elementen")]
     public Image timerFillImage;
 
+    [Header("Player Reference")]
+    public playerMovementScript playerMovement;
+
     [Header("Controller Iconen")]
     public Image buttonIconImage;
     public ControllerButtonMapping[] buttonMappings;
@@ -217,30 +220,22 @@ public class QuickTimeEvent : MonoBehaviour
     // Coroutine om de Input Action veilig uit te schakelen en de scene op te ruimen.
     IEnumerator CompleteEvent(bool wasSuccess)
     {
-        // ESSENTIEEL: Wacht één frame om de input callback af te ronden.
         yield return null;
 
-        // Nu is het veilig om de Input Action uit te schakelen en op te ruimen
+        // Re-enable player movement
+        if (playerMovement != null)
+            playerMovement.canMove = true;
+
         StopListeningForInput();
 
         if (wasSuccess)
         {
-            // SUCCES ACTIES (van de HELE REEKS)
             if (spawnedEnemy != null)
-            {
                 Destroy(spawnedEnemy);
-                Debug.Log("Enemy vernietigd na succesvolle QTE!");
-            }
-            else
-            {
-                Debug.LogWarning("Geen enemy om te vernietigen!");
-            }
         }
         else
         {
-            // FAAL ACTIES
-            // Hier komt de logica voor wanneer de hele reeks mislukt
-            Debug.Log("QTE gefaald - enemy blijft in de scene");
+            // Failure logic
         }
 
         gameObject.SetActive(false);

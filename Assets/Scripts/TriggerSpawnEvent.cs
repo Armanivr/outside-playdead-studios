@@ -9,6 +9,9 @@ public class TriggerSpawnEvent : MonoBehaviour
     [Header("Instellingen voor UI")]
     public GameObject quickTimeUI;    // Het UI paneel (Canvas of Panel)
 
+    [Header("Player Reference")]
+    public playerMovementScript playerMovement; // Drag your Player GameObject here
+
     private bool hasTriggered = false; // Zorgt dat het event maar 1 keer gebeurt
     private GameObject spawnedEnemy;   // Referentie naar de gespawnde enemy
 
@@ -45,24 +48,35 @@ public class TriggerSpawnEvent : MonoBehaviour
     {
         if (quickTimeUI != null)
         {
-            // Maakt het UI element zichtbaar
+            // Show the UI
             quickTimeUI.SetActive(true);
 
-            // Zoek het QuickTimeEvent component en wijs de gespawnde enemy toe
+            // Disable player movement
+            if (playerMovement != null)
+            {
+                playerMovement.canMove = false;
+                Debug.Log("Player movement disabled for QTE");
+            }
+
+            // Assign spawned enemy to QTE
             QuickTimeEvent qte = quickTimeUI.GetComponent<QuickTimeEvent>();
             if (qte != null && spawnedEnemy != null)
             {
                 qte.SetSpawnedEnemy(spawnedEnemy);
-                Debug.Log("Enemy toegewezen aan QTE!");
+
+                // Also pass the player reference to the QTE so it can re-enable movement
+                qte.playerMovement = playerMovement;
+
+                Debug.Log("Enemy assigned to QTE!");
             }
             else if (qte == null)
             {
-                Debug.LogWarning("QuickTimeEvent component niet gevonden op het quickTimeUI!");
+                Debug.LogWarning("QuickTimeEvent component not found on quickTimeUI!");
             }
         }
         else
         {
-            Debug.LogWarning("QuickTimeUI is niet toegewezen!");
+            Debug.LogWarning("QuickTimeUI is not assigned!");
         }
     }
 }

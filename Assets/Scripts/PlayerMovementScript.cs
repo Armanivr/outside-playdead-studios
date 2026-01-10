@@ -1,5 +1,5 @@
 using UnityEngine;
-using Outside.Input; // Only needed if PlayerControls is in this namespace
+using Outside.Input;
 
 public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
 {
@@ -7,18 +7,15 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
 
-
-    Rigidbody rb;
-
-    float inputHorizontal;
-
     private PlayerControls controls;
     private Vector2 moveInput;
+
+    [HideInInspector] public bool canMove = true;
 
     private void Awake()
     {
         controls = new PlayerControls();
-        controls.Player.SetCallbacks(this); // Register callbacks
+        controls.Player.SetCallbacks(this);
     }
 
     private void OnEnable()
@@ -33,16 +30,26 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        moveInput = context.ReadValue<Vector2>();
-
+        moveInput = canMove ? context.ReadValue<Vector2>() : Vector2.zero;
     }
 
     void Update()
     {
-        transform.position += new Vector3(moveInput.x, 0f, 0f) * moveSpeed * Time.deltaTime;
+        if (!canMove)
+        {
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
 
-        animator.SetBool("isRunning", moveInput != Vector2.zero);
+        // Beweging
+        Vector3 movement = new Vector3(moveInput.x, 0f, 0f);
+        transform.position += movement * moveSpeed * Time.deltaTime;
 
+        // Speed check (0–1)
+        float speed = Mathf.Abs(moveInput.x);
+        animator.SetFloat("Speed", speed);
+
+        // Flip sprite
         if (moveInput.x > 0)
             spriteRenderer.flipX = false;
         else if (moveInput.x < 0)
