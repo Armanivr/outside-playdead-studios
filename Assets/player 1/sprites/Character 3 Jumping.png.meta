@@ -1,0 +1,377 @@
+fileFormatVersion: 2
+guid: 13108d2f52a302e4797998fd0bf88781
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4302317396330502398
+    second: Character 3 Jumping_0
+  - first:
+      213: -7859528531210992352
+    second: Character 3 Jumping_1
+  - first:
+      213: 8853640434850819057
+    second: Character 3 Jumping_2
+  - first:
+      213: 6578398699125528382
+    second: Character 3 Jumping_3
+  - first:
+      213: 7306461297958714860
+    second: Character 3 Jumping_4
+  - first:
+      213: -7371057398862530027
+    second: Character 3 Jumping_5
+  - first:
+      213: -6051876485331328429
+    second: Character 3 Jumping_6
+  - first:
+      213: -954386082403974334
+    second: Character 3 Jumping_7
+  - first:
+      213: -8170775859170752696
+    second: Character 3 Jumping_8
+  - first:
+      213: 3369334876239964062
+    second: Character 3 Jumping_9
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Character 3 Jumping_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 391
+        width: 62
+        height: 132
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207acb86f191b44c0800000000000000
+      internalID: -4302317396330502398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 391
+        width: 72
+        height: 122
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5409836}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0250f1341785de290800000000000000
+      internalID: -7859528531210992352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_2
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 391
+        width: 66
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4520548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fb615021137eda70800000000000000
+      internalID: 8853640434850819057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_3
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 393
+        width: 92
+        height: 148
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44594595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37d44453ca2b4b50800000000000000
+      internalID: 6578398699125528382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 213
+        width: 88
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cedf7f5d6d3c56560800000000000000
+      internalID: 7306461297958714860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_5
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 217
+        width: 88
+        height: 152
+      alignment: 9
+      pivot: {x: 0.5, y: 0.43421054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ab8c9695eb4b990800000000000000
+      internalID: -7371057398862530027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 205
+        width: 102
+        height: 146
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4520548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 352694b966a630ca0800000000000000
+      internalID: -6051876485331328429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_7
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 201
+        width: 104
+        height: 148
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44594595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2430cb32ae651c2f0800000000000000
+      internalID: -954386082403974334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 11
+        width: 96
+        height: 141
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4680851}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8474ace85a29b9e80800000000000000
+      internalID: -8170775859170752696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character 3 Jumping_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 11
+        width: 70
+        height: 130
+      alignment: 9
+      pivot: {x: 0.5, y: 0.50769234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e972e9be73842ce20800000000000000
+      internalID: 3369334876239964062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9c928cd06596794408ffc85c100d5fae
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Character 3 Jumping_0: -4302317396330502398
+      Character 3 Jumping_1: -7859528531210992352
+      Character 3 Jumping_2: 8853640434850819057
+      Character 3 Jumping_3: 6578398699125528382
+      Character 3 Jumping_4: 7306461297958714860
+      Character 3 Jumping_5: -7371057398862530027
+      Character 3 Jumping_6: -6051876485331328429
+      Character 3 Jumping_7: -954386082403974334
+      Character 3 Jumping_8: -8170775859170752696
+      Character 3 Jumping_9: 3369334876239964062
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

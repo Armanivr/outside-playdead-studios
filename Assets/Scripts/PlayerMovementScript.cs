@@ -9,6 +9,8 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
 
     private PlayerControls controls;
     private Vector2 moveInput;
+    private bool playingFootsteps = false;
+    public float footstepSpeed = 0.5f;
 
     [HideInInspector] public bool canMove = true;
 
@@ -49,10 +51,36 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
         float speed = Mathf.Abs(moveInput.x);
         animator.SetFloat("Speed", speed);
 
+        if( speed > 0 && !playingFootsteps)
+        {
+            StartFootsteps();
+        }
+        else if(speed == 0)
+        {
+            StopFootsteps();
+        }
+
         // Flip sprite
         if (moveInput.x > 0)
             spriteRenderer.flipX = false;
         else if (moveInput.x < 0)
             spriteRenderer.flipX = true;
+    }
+
+    void StartFootsteps()
+    {
+        playingFootsteps = true;
+        InvokeRepeating(nameof(PlayFootstep), 0f, footstepSpeed);
+    }
+
+    void StopFootsteps()
+    {
+        playingFootsteps = false;
+        CancelInvoke(nameof(PlayFootstep));
+    }
+
+    void PlayFootstep()
+    {
+        SoundEffectManager.Play("Footstep");
     }
 }
