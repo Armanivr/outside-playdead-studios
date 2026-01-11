@@ -59,7 +59,10 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (dialogueActive && !dialoguePaused && Input.GetKeyDown(KeyCode.Space))
+        // Checks for Space Bar OR Controller Button South (joystick button 0)
+        bool skipInput = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.JoystickButton0);
+
+        if (dialogueActive && !dialoguePaused && skipInput)
         {
             // If typing, finish the line instantly. If finished, go to next line.
             if (isTyping)
