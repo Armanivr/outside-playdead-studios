@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6389888828866134543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.45, y: -0.48, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.350449, y: -1.0865158, z: 0.08459239}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174,7 +174,7 @@ Animator:
   m_GameObject: {fileID: 6389888828866134543}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 947e70ff88253ba40bfe7d65e3bfb383, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b0fafec7a3c47c4faae66b2315e3365, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -198,7 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422a84574f4ee8046aeccde541e4cc66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceInFront: 1.75
-  distanceBehind: -1.75
-  damping: 0.4
+  distanceInFront: 0.75
+  distanceBehind: -0.75
+  smoothTime: 0.5
+  maxSpeed: 3.5
   player: {fileID: 0}
+  animator: {fileID: 6001297238611138282}
+  footstepSpeed: 0.5
+  footstepThreshold: 0.05
