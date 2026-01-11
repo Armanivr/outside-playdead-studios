@@ -13,8 +13,6 @@ public struct ControllerButtonMapping
 
 public class QuickTimeEvent : MonoBehaviour
 {
-    // ... (QTE Instellingen, UI, Variabelen, Start, OnEnable, OnDisable blijven hetzelfde) ...
-
     [Header("Instellingen QTE")]
     public float phaseDuration = 1.5f;
     public int requiredSuccesses = 3;
@@ -38,6 +36,7 @@ public class QuickTimeEvent : MonoBehaviour
     private bool isActive = false;
     private InputAction inputAction;
 
+    // Verwijzing naar de Health Manager in de scène
     private HealthManager healthManager;
 
     public GameObject spawnedEnemy;
@@ -49,10 +48,12 @@ public class QuickTimeEvent : MonoBehaviour
 
     void Start()
     {
+        // Zoek de HealthManager één keer bij de start van de scène.
         healthManager = Object.FindFirstObjectByType<HealthManager>();
+
         if (healthManager == null)
         {
-            Debug.LogError("HealthManager niet gevonden.");
+            Debug.LogError("HealthManager niet gevonden in de scène. Schade bij falen werkt niet.");
         }
     }
 
@@ -72,6 +73,19 @@ public class QuickTimeEvent : MonoBehaviour
     private void OnDisable()
     {
         StopListeningForInput();
+    }
+
+    /// <summary>
+    /// Public methode om de gespawnde enemy toe te wijzen
+    /// </summary>
+    public void SetSpawnedEnemy(GameObject enemy)
+    {
+        spawnedEnemy = enemy;
+        if (spawnedEnemy != null)
+        {
+            enemyAnimator = spawnedEnemy.GetComponent<Animator>();
+            Debug.Log($"Enemy toegewezen aan QTE: {enemy.name}");
+        }
     }
 
     void StartNewQTE()
@@ -121,6 +135,7 @@ public class QuickTimeEvent : MonoBehaviour
     }
 
     // --- INPUT SYSTEM LOGICA ---
+
     private void StartListeningForInput()
     {
         if (inputAction != null) StopListeningForInput();
@@ -135,6 +150,7 @@ public class QuickTimeEvent : MonoBehaviour
         if (inputAction != null)
         {
             inputAction.performed -= ctx => OnInputPerformed();
+            inputAction.Disable();
             inputAction.Dispose();
             inputAction = null;
         }
@@ -147,6 +163,8 @@ public class QuickTimeEvent : MonoBehaviour
             Success();
         }
     }
+
+    // --- UI FUNCTIES ---
 
     void SetButtonIcon(string path)
     {
@@ -173,12 +191,15 @@ public class QuickTimeEvent : MonoBehaviour
         currentSuccesses++;
         StopAllCoroutines();
 
+        Debug.Log($"QTE Succes! ({currentSuccesses}/{requiredSuccesses})");
+
         if (currentSuccesses >= requiredSuccesses)
         {
             StartCoroutine(CompleteEvent(true));
         }
         else
         {
+            // Start de volgende stap met een vertraging van één frame (Bugfix)
             StartCoroutine(StartNextQTEAfterDelay());
         }
     }
@@ -193,8 +214,11 @@ public class QuickTimeEvent : MonoBehaviour
     {
         isActive = false;
         StopAllCoroutines();
+        Debug.Log("QTE MISLUKT!");
         StartCoroutine(CompleteEvent(false));
     }
+
+    // --- COMPLETE EVENT MET ANIMATIES EN GAME OVER LOGICA ---
 
     IEnumerator CompleteEvent(bool wasSuccess)
     {
@@ -206,10 +230,11 @@ public class QuickTimeEvent : MonoBehaviour
 
         if (wasSuccess)
         {
-            // SUCCES: ALTIJD VANISH
+            // SUCCES: ALTIJD VANISH ANIMATIE
             if (enemyAnimator != null)
             {
                 enemyAnimator.SetTrigger(vanishTrigger);
+                Debug.Log("Succes! Vanish animatie gestart.");
             }
         }
         else // FAAL
@@ -220,24 +245,30 @@ public class QuickTimeEvent : MonoBehaviour
 
                 if (healthBeforeDamage <= 1)
                 {
-                    // Laatste hart: ATTACK animatie
+                    // Laatste hart: ATTACK ANIMATIE
                     if (enemyAnimator != null)
                     {
                         enemyAnimator.SetTrigger(attackTrigger);
+                        Debug.Log("Game Over imminent! Attack animatie gestart.");
                     }
                     shouldTriggerGameOver = true;
                 }
                 else
                 {
-                    // Meer dan 1 hart: VANISH animatie
+                    // Meer dan 1 hart: VANISH ANIMATIE
                     if (enemyAnimator != null)
                     {
                         enemyAnimator.SetTrigger(vanishTrigger);
+                        Debug.Log("Falen met HP over. Vanish animatie gestart.");
                     }
                 }
 
-                // Schade toepassen 
+                // Schade toepassen
                 healthManager.TakeDamage(1);
+            }
+            else
+            {
+                Debug.LogWarning("HealthManager is null! Kan geen schade toepassen.");
             }
         }
 
@@ -254,17 +285,17 @@ public class QuickTimeEvent : MonoBehaviour
             if (healthManager != null)
             {
                 healthManager.GameOver();
+                Debug.Log("Game Over aangeroepen!");
             }
             // Vernietig hier niet, want we willen dat de vijand zichtbaar blijft in het gepauzeerde scherm.
 
             // De QTE UI kan worden gedeactiveerd als deze boven het Game Over scherm komt
             gameObject.SetActive(false);
 
-            yield break;
+            yield break; // Stop de coroutine hier
         }
 
-
-        // Normale afsluiting:
+        // NORMALE AFSLUITING (geen Game Over):
 
         // SPELERBEWEGING WEER INSCHAKELEN
         if (playerMovement != null)
@@ -277,8 +308,10 @@ public class QuickTimeEvent : MonoBehaviour
         if (spawnedEnemy != null)
         {
             Destroy(spawnedEnemy);
+            Debug.Log("Enemy vernietigd.");
         }
 
+        // QTE UI uitschakelen
         gameObject.SetActive(false);
     }
 }

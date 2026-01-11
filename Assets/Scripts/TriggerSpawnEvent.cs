@@ -45,6 +45,11 @@ public class TriggerSpawnEvent : MonoBehaviour
         if (enemyPrefab != null && spawnPoint != null)
         {
             spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            Debug.Log($"Enemy gespawned: {spawnedEnemy.name}");
+        }
+        else
+        {
+            Debug.LogWarning("Enemy Prefab of SpawnPoint is niet toegewezen!");
         }
     }
 
@@ -57,6 +62,11 @@ public class TriggerSpawnEvent : MonoBehaviour
             {
                 // Activeer de Appear animatie direct nadat de vijand is gespawnd
                 enemyAnimator.SetTrigger(appearTrigger);
+                Debug.Log($"Appear animatie getriggerd: {appearTrigger}");
+            }
+            else
+            {
+                Debug.LogWarning("Geen Animator component gevonden op de gespawnde enemy!");
             }
         }
     }
@@ -73,20 +83,51 @@ public class TriggerSpawnEvent : MonoBehaviour
                 if (playerMovement != null)
                 {
                     playerMovement.canMove = false;
+                    Debug.Log("Spelerbeweging gedeactiveerd voor QTE.");
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerMovement referentie is niet toegewezen!");
                 }
 
+                // Zoek het QuickTimeEvent component
                 QuickTimeEvent qte = introManager.quickTimePanel.GetComponent<QuickTimeEvent>();
 
                 if (qte != null)
                 {
                     // Wijs de gespawnde vijand en de spelerreferentie toe
-                    qte.spawnedEnemy = spawnedEnemy;
+                    qte.SetSpawnedEnemy(spawnedEnemy);
                     qte.playerMovement = playerMovement;
+                    Debug.Log("Enemy en player movement toegewezen aan QTE!");
+                }
+                else
+                {
+                    Debug.LogWarning("QuickTimeEvent component niet gevonden op het quickTimePanel!");
                 }
 
                 // Activeer het Intro Paneel
                 qteIntroPanel.SetActive(true);
+                Debug.Log("QTE Intro Panel geactiveerd.");
             }
+            else
+            {
+                if (introManager == null)
+                {
+                    Debug.LogWarning("QTEIntroManager component niet gevonden op qteIntroPanel!");
+                }
+                if (spawnedEnemy == null)
+                {
+                    Debug.LogWarning("SpawnedEnemy is null!");
+                }
+                if (introManager != null && introManager.quickTimePanel == null)
+                {
+                    Debug.LogWarning("QuickTimePanel is niet toegewezen in QTEIntroManager!");
+                }
+            }
+        }
+        else
+        {
+            Debug.LogWarning("QTE Intro Panel is niet toegewezen!");
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement; // Blijft nodig voor de knop 'Return to Main Menu'
+using UnityEngine.SceneManagement;
 
 public class HealthManager : MonoBehaviour
 {
@@ -11,7 +11,11 @@ public class HealthManager : MonoBehaviour
 
     [Header("Game Over Instellingen")]
     [Tooltip("Het UI-paneel dat verschijnt bij Game Over (moet de 'Return to Main Menu' knop bevatten).")]
-    public GameObject gameOverUIPanel; // Referentie naar het Game Over UI Paneel
+    public GameObject gameOverUIPanel;
+
+    [Header("Scene Instellingen")]
+    [Tooltip("Naam van de hoofdmenu scene om naar terug te keren.")]
+    public string mainMenuSceneName = "MainMenu";
 
     private int maxHealth;
     private int currentHealth;
@@ -66,7 +70,9 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    // De functie die Game Over afhandelt (NU: activeert UI paneel)
+    /// <summary>
+    /// Activeert het Game Over scherm
+    /// </summary>
     public void GameOver()
     {
         Debug.Log("GAME OVER! Speler overleden. Activeer Game Over UI.");
@@ -81,24 +87,47 @@ public class HealthManager : MonoBehaviour
             Debug.LogError("GameOver UI Paneel is niet toegewezen in HealthManager!");
         }
 
-        // Optioneel: Pauzeer de tijd zodat het spel stopt
+        // Pauzeer de tijd zodat het spel stopt
         Time.timeScale = 0f;
     }
 
-    // VOEG DEZE FUNCTIE TOE AAN DE KNOP 'Return to Main Menu' OP JE UI PANEEL
-    public void ReturnToMainMenu(string mainMenuSceneName)
+    /// <summary>
+    /// Keer terug naar het hoofdmenu - gebruik deze methode op de "Return to Main Menu" knop
+    /// </summary>
+    public void ReturnToMainMenu()
     {
         // Herstel de tijdsschaal
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;    
 
         // Laad het hoofdmenu
         if (!string.IsNullOrEmpty(mainMenuSceneName))
         {
+            Debug.Log($"Laden van hoofdmenu scene: {mainMenuSceneName}");
             SceneManager.LoadScene(mainMenuSceneName);
         }
         else
         {
-            Debug.LogError("Hoofdmenu scène naam mist!");
+            Debug.LogError("Hoofdmenu scène naam mist! Stel 'mainMenuSceneName' in de Inspector in.");
+        }
+    }
+
+    /// <summary>
+    /// Alternatieve methode om naar een specifieke scene te gaan
+    /// </summary>
+    public void ReturnToMainMenu(string sceneName)
+    {
+        // Herstel de tijdsschaal
+        Time.timeScale = 1f;
+
+        // Laad de opgegeven scene
+        if (!string.IsNullOrEmpty(sceneName))
+        {
+            Debug.Log($"Laden van scene: {sceneName}");
+            SceneManager.LoadScene(sceneName);
+        }
+        else
+        {
+            Debug.LogError("Scene naam parameter is leeg!");
         }
     }
 }
