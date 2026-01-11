@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 
-// Dit is een 'struct' om in de Inspector een Control Path aan een Sprite te koppelen
 [System.Serializable]
 public struct ControllerButtonMapping
 {
@@ -14,8 +13,10 @@ public struct ControllerButtonMapping
 
 public class QuickTimeEvent : MonoBehaviour
 {
+    // ... (QTE Instellingen, UI, Variabelen, Start, OnEnable, OnDisable blijven hetzelfde) ...
+
     [Header("Instellingen QTE")]
-    public float timeLimit = 1.5f;
+    public float phaseDuration = 1.5f;
     public int requiredSuccesses = 3;
 
     private int currentSuccesses = 0;
@@ -23,26 +24,48 @@ public class QuickTimeEvent : MonoBehaviour
     [Header("UI Elementen")]
     public Image timerFillImage;
 
-    [Header("Player Reference")]
-    public playerMovementScript playerMovement;
-
     [Header("Controller Iconen")]
     public Image buttonIconImage;
     public ControllerButtonMapping[] buttonMappings;
+
+    [Header("Animatie Instellingen")]
+    public string vanishTrigger = "Vanish";
+    public string attackTrigger = "Attack";
+    public float animationDelay = 1.0f;
 
     [HideInInspector] public string requiredPath;
 
     private bool isActive = false;
     private InputAction inputAction;
 
-    public GameObject spawnedEnemy;
+    private HealthManager healthManager;
 
-    // --- SETUP EN DEACTIVERING ---
+    public GameObject spawnedEnemy;
+    [HideInInspector] public playerMovementScript playerMovement;
+
+    private Animator enemyAnimator;
+
+    // --- INITIALISATIE ---
+
+    void Start()
+    {
+        healthManager = Object.FindFirstObjectByType<HealthManager>();
+        if (healthManager == null)
+        {
+            Debug.LogError("HealthManager niet gevonden.");
+        }
+    }
 
     private void OnEnable()
     {
         isActive = true;
         currentSuccesses = 0;
+
+        if (spawnedEnemy != null)
+        {
+            enemyAnimator = spawnedEnemy.GetComponent<Animator>();
+        }
+
         StartNewQTE();
     }
 
@@ -51,33 +74,17 @@ public class QuickTimeEvent : MonoBehaviour
         StopListeningForInput();
     }
 
-    // --- PUBLIC METHODE OM ENEMY TOE TE WIJZEN ---
-
-    /// <summary>
-    /// Wijs de gespawnde enemy toe aan dit QTE event
-    /// </summary>
-    public void SetSpawnedEnemy(GameObject enemy)
-    {
-        spawnedEnemy = enemy;
-        Debug.Log($"Enemy toegewezen aan QTE: {enemy.name}");
-    }
-
     void StartNewQTE()
     {
-        // Stop ALLEEN de lopende timer coroutine
         StopAllCoroutines();
-
-        // Zorg dat de vorige actie gestopt is voordat we een nieuwe starten
         StopListeningForInput();
 
-        // 1. Willekeurige knop (Control Path) kiezen
         if (buttonMappings.Length > 0)
         {
             int randomIndex = Random.Range(0, buttonMappings.Length);
             requiredPath = buttonMappings[randomIndex].controlPath;
         }
 
-        // 2. Visuele timer instellen (vol)
         if (timerFillImage != null)
         {
             timerFillImage.type = Image.Type.Filled;
@@ -85,27 +92,22 @@ public class QuickTimeEvent : MonoBehaviour
             timerFillImage.fillAmount = 1f;
         }
 
-        // 3. Toon de juiste knopafbeelding
         SetButtonIcon(requiredPath);
-
-        // 4. Start luisteren naar input voor de nieuwe knop
         StartListeningForInput();
-
-        // 5. Start de timer
-        StartCoroutine(StartTimer());
+        StartCoroutine(RunPhaseTimer());
     }
 
     // --- TIMING ---
 
-    IEnumerator StartTimer()
+    IEnumerator RunPhaseTimer()
     {
-        float timer = timeLimit;
+        float timer = phaseDuration;
 
         while (timer > 0)
         {
             if (timerFillImage != null)
             {
-                timerFillImage.fillAmount = timer / timeLimit;
+                timerFillImage.fillAmount = timer / phaseDuration;
             }
 
             timer -= Time.deltaTime;
@@ -119,14 +121,9 @@ public class QuickTimeEvent : MonoBehaviour
     }
 
     // --- INPUT SYSTEM LOGICA ---
-
     private void StartListeningForInput()
     {
-        // Zorg ervoor dat er geen oude acties zijn
-        if (inputAction != null)
-        {
-            StopListeningForInput();
-        }
+        if (inputAction != null) StopListeningForInput();
 
         inputAction = new InputAction(binding: requiredPath);
         inputAction.performed += ctx => OnInputPerformed();
@@ -138,7 +135,6 @@ public class QuickTimeEvent : MonoBehaviour
         if (inputAction != null)
         {
             inputAction.performed -= ctx => OnInputPerformed();
-            inputAction.Disable();
             inputAction.Dispose();
             inputAction = null;
         }
@@ -151,8 +147,6 @@ public class QuickTimeEvent : MonoBehaviour
             Success();
         }
     }
-
-    // --- UI FUNCTIES ---
 
     void SetButtonIcon(string path)
     {
@@ -172,36 +166,26 @@ public class QuickTimeEvent : MonoBehaviour
         buttonIconImage.gameObject.SetActive(false);
     }
 
-    // --- RESULTAAT HANTERING (PER STAP) ---
+    // --- RESULTAAT HANTERING ---
 
     void Success()
     {
         currentSuccesses++;
-
-        // Stop ALLEEN de timer
         StopAllCoroutines();
-
-        Debug.Log($"QTE Succes! ({currentSuccesses}/{requiredSuccesses})");
 
         if (currentSuccesses >= requiredSuccesses)
         {
-            // Alle opdrachten voltooid (hele reeks succes)
             StartCoroutine(CompleteEvent(true));
         }
         else
         {
-            // Start de volgende stap met een vertraging van één frame
             StartCoroutine(StartNextQTEAfterDelay());
         }
     }
 
-    // VEREIST VOOR DE BUGFIX: Stelt het starten van de volgende QTE uit.
     IEnumerator StartNextQTEAfterDelay()
     {
-        // Wacht één frame om zeker te zijn dat de vorige input-cyclus is afgerond.
         yield return null;
-
-        // Start nu de volgende stap veilig
         StartNewQTE();
     }
 
@@ -209,33 +193,90 @@ public class QuickTimeEvent : MonoBehaviour
     {
         isActive = false;
         StopAllCoroutines();
-
-        Debug.Log("QTE MISLUKT!");
-        // Roep de opruiming aan (hele reeks mislukt)
         StartCoroutine(CompleteEvent(false));
     }
 
-    // --- OPZETTEN EN OPruimen (HELE REEKS) ---
-
-    // Coroutine om de Input Action veilig uit te schakelen en de scene op te ruimen.
     IEnumerator CompleteEvent(bool wasSuccess)
     {
         yield return null;
 
-        // Re-enable player movement
-        if (playerMovement != null)
-            playerMovement.canMove = true;
-
         StopListeningForInput();
+
+        bool shouldTriggerGameOver = false;
 
         if (wasSuccess)
         {
-            if (spawnedEnemy != null)
-                Destroy(spawnedEnemy);
+            // SUCCES: ALTIJD VANISH
+            if (enemyAnimator != null)
+            {
+                enemyAnimator.SetTrigger(vanishTrigger);
+            }
         }
-        else
+        else // FAAL
         {
-            // Failure logic
+            if (healthManager != null)
+            {
+                int healthBeforeDamage = healthManager.GetCurrentHealth();
+
+                if (healthBeforeDamage <= 1)
+                {
+                    // Laatste hart: ATTACK animatie
+                    if (enemyAnimator != null)
+                    {
+                        enemyAnimator.SetTrigger(attackTrigger);
+                    }
+                    shouldTriggerGameOver = true;
+                }
+                else
+                {
+                    // Meer dan 1 hart: VANISH animatie
+                    if (enemyAnimator != null)
+                    {
+                        enemyAnimator.SetTrigger(vanishTrigger);
+                    }
+                }
+
+                // Schade toepassen 
+                healthManager.TakeDamage(1);
+            }
+        }
+
+        // Wacht op de animatie
+        if (enemyAnimator != null)
+        {
+            yield return new WaitForSeconds(animationDelay);
+        }
+
+        // GAME OVER LOGICA (Activeer UI en pauzeer tijd)
+        if (shouldTriggerGameOver)
+        {
+            // Belangrijk: De HealthManager activeert de UI en zet Time.timeScale op 0.
+            if (healthManager != null)
+            {
+                healthManager.GameOver();
+            }
+            // Vernietig hier niet, want we willen dat de vijand zichtbaar blijft in het gepauzeerde scherm.
+
+            // De QTE UI kan worden gedeactiveerd als deze boven het Game Over scherm komt
+            gameObject.SetActive(false);
+
+            yield break;
+        }
+
+
+        // Normale afsluiting:
+
+        // SPELERBEWEGING WEER INSCHAKELEN
+        if (playerMovement != null)
+        {
+            playerMovement.canMove = true;
+            Debug.Log("Spelerbeweging ingeschakeld na QTE.");
+        }
+
+        // Vijand Vernietigen
+        if (spawnedEnemy != null)
+        {
+            Destroy(spawnedEnemy);
         }
 
         gameObject.SetActive(false);

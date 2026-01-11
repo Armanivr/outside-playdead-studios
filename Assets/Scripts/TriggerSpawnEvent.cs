@@ -3,30 +3,40 @@ using UnityEngine;
 public class TriggerSpawnEvent : MonoBehaviour
 {
     [Header("Instellingen voor Enemy")]
-    public GameObject enemyPrefab;    // Het 'blauwdruk' van je enemy
-    public Transform spawnPoint;      // De plek waar de enemy moet verschijnen
+    public GameObject enemyPrefab;
+    public Transform spawnPoint;
 
     [Header("Instellingen voor UI")]
-    public GameObject quickTimeUI;    // Het UI paneel (Canvas of Panel)
+    public GameObject qteIntroPanel;
 
     [Header("Player Reference")]
-    public playerMovementScript playerMovement; // Drag your Player GameObject here
+    public playerMovementScript playerMovement;
 
-    private bool hasTriggered = false; // Zorgt dat het event maar 1 keer gebeurt
-    private GameObject spawnedEnemy;   // Referentie naar de gespawnde enemy
+    [Header("Animatie Trigger")]
+    [Tooltip("Moet overeenkomen met de Animator Trigger op de vijand (bijv. 'Appear').")]
+    public string appearTrigger = "Appear";
+
+    private bool hasTriggered = false;
+    private GameObject spawnedEnemy;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Check of het object dat binnenkomt de speler is
-        // Zorg dat je speler de tag "Player" heeft!
         if (other.CompareTag("Player") && !hasTriggered)
         {
+            // 1. Spawnen
             SpawnEnemy();
-            ShowUI();
 
-            // Zet op true zodat het niet nog een keer gebeurt als je terugloopt
+            // 2. Start Animatie direct (de gewenste actie)
+            StartAppearAnimation();
+
+            // 3. Toon Intro UI en zet referenties
+            ShowIntroUI();
+
             hasTriggered = true;
-            Debug.Log("Spawn Event Geactiveerd!");
+            Debug.Log("Spawn Event & Appear Animatie Geactiveerd!");
+
+            // De trigger wordt vernietigd om heractivering te voorkomen
+            Destroy(gameObject);
         }
     }
 
@@ -34,49 +44,49 @@ public class TriggerSpawnEvent : MonoBehaviour
     {
         if (enemyPrefab != null && spawnPoint != null)
         {
-            // Maakt een kopie van de enemy op de positie van het spawnPoint
             spawnedEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
-            Debug.Log($"Enemy gespawned: {spawnedEnemy.name}");
-        }
-        else
-        {
-            Debug.LogWarning("Enemy Prefab of SpawnPoint is niet toegewezen!");
         }
     }
 
-    void ShowUI()
+    void StartAppearAnimation()
     {
-        if (quickTimeUI != null)
+        if (spawnedEnemy != null)
         {
-            // Show the UI
-            quickTimeUI.SetActive(true);
-
-            // Disable player movement
-            if (playerMovement != null)
+            Animator enemyAnimator = spawnedEnemy.GetComponent<Animator>();
+            if (enemyAnimator != null)
             {
-                playerMovement.canMove = false;
-                Debug.Log("Player movement disabled for QTE");
-            }
-
-            // Assign spawned enemy to QTE
-            QuickTimeEvent qte = quickTimeUI.GetComponent<QuickTimeEvent>();
-            if (qte != null && spawnedEnemy != null)
-            {
-                qte.SetSpawnedEnemy(spawnedEnemy);
-
-                // Also pass the player reference to the QTE so it can re-enable movement
-                qte.playerMovement = playerMovement;
-
-                Debug.Log("Enemy assigned to QTE!");
-            }
-            else if (qte == null)
-            {
-                Debug.LogWarning("QuickTimeEvent component not found on quickTimeUI!");
+                // Activeer de Appear animatie direct nadat de vijand is gespawnd
+                enemyAnimator.SetTrigger(appearTrigger);
             }
         }
-        else
+    }
+
+    void ShowIntroUI()
+    {
+        if (qteIntroPanel != null)
         {
-            Debug.LogWarning("QuickTimeUI is not assigned!");
+            QTEIntroManager introManager = qteIntroPanel.GetComponent<QTEIntroManager>();
+
+            if (introManager != null && spawnedEnemy != null && introManager.quickTimePanel != null)
+            {
+                // Deactiveer Spelerbeweging
+                if (playerMovement != null)
+                {
+                    playerMovement.canMove = false;
+                }
+
+                QuickTimeEvent qte = introManager.quickTimePanel.GetComponent<QuickTimeEvent>();
+
+                if (qte != null)
+                {
+                    // Wijs de gespawnde vijand en de spelerreferentie toe
+                    qte.spawnedEnemy = spawnedEnemy;
+                    qte.playerMovement = playerMovement;
+                }
+
+                // Activeer het Intro Paneel
+                qteIntroPanel.SetActive(true);
+            }
         }
     }
 }
