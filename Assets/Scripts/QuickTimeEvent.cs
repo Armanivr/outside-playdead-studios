@@ -255,11 +255,17 @@ public class QuickTimeEvent : MonoBehaviour
                 }
                 else
                 {
-                    // Meer dan 1 hart: VANISH ANIMATIE
+                    // Meer dan 1 hart: ATTACK DAN VANISH ANIMATIE
                     if (enemyAnimator != null)
                     {
+                        enemyAnimator.SetTrigger(attackTrigger);
+                        Debug.Log("Falen met HP over. Attack animatie gestart.");
+                        
+                        // Wacht op attack animatie
+                        yield return new WaitForSeconds(animationDelay);
+                        
                         enemyAnimator.SetTrigger(vanishTrigger);
-                        Debug.Log("Falen met HP over. Vanish animatie gestart.");
+                        Debug.Log("Vanish animatie gestart na attack.");
                     }
                 }
 

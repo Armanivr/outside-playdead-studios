@@ -2,26 +2,46 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
+using System.Collections; // BELANGRIJK: Nodig voor Coroutines
 
 public class HealthManager : MonoBehaviour
 {
     [Header("Gezondheid UI Instellingen")]
-    [Tooltip("Sleep de UI Image objecten hierheen, 1 voor elk hart.")]
     public List<Image> healthIcons;
 
     [Header("Game Over Instellingen")]
-    [Tooltip("Het UI-paneel dat verschijnt bij Game Over (moet de 'Return to Main Menu' knop bevatten).")]
     public GameObject gameOverUIPanel;
-
-    [Header("Scene Instellingen")]
-    [Tooltip("Naam van de hoofdmenu scene om naar terug te keren.")]
     public string mainMenuSceneName = "MainMenu";
+
+    [Header("Audio Instellingen")]
+    public AudioClip gameOverSound;
+    [Tooltip("De AudioSource die de omgevingsgeluiden (wildlife) afspeelt.")]
+    public AudioSource ambientSoundSource;
+    private AudioSource audioSource; // De AudioSource op dit GameObject (voor de Game Over sound)
+
+    private const string ReturnToMenuControlPath = "<Gamepad>/buttonSouth";
+    private InputAction returnAction;
 
     private int maxHealth;
     private int currentHealth;
 
     void Awake()
     {
+        // Initialisatie van de lokale AudioSource (voor Game Over geluid)
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogError("HealthManager mist een AudioSource component voor het Game Over geluid.");
+        }
+
+        // Controle of de Ambient Sound Source is toegewezen
+        if (ambientSoundSource == null)
+        {
+            Debug.LogWarning("Ambient Sound Source is niet toegewezen in HealthManager. Wildlife geluid kan niet gestopt worden.");
+        }
+
+
         if (healthIcons.Count == 0)
         {
             Debug.LogError("HealthManager mist Health Icons in de lijst.");
@@ -30,7 +50,6 @@ public class HealthManager : MonoBehaviour
         maxHealth = healthIcons.Count;
         currentHealth = maxHealth;
 
-        // Zorg ervoor dat het Game Over Paneel bij de start is uitgeschakeld
         if (gameOverUIPanel != null)
         {
             gameOverUIPanel.SetActive(false);
@@ -54,7 +73,6 @@ public class HealthManager : MonoBehaviour
         {
             currentHealth = 0;
             UpdateHealthUI();
-            // We laten de QTE.CompleteEvent de Game Over functie aanroepen ná de animatie.
         }
         else
         {
@@ -70,14 +88,23 @@ public class HealthManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Activeert het Game Over scherm
-    /// </summary>
+
     public void GameOver()
     {
         Debug.Log("GAME OVER! Speler overleden. Activeer Game Over UI.");
 
-        // Schakel het Game Over UI paneel in
+        // STOP WILDLIFE GELUID
+        if (ambientSoundSource != null)
+        {
+            ambientSoundSource.Stop();
+        }
+
+        // SPEEL GAME OVER GELUID AF
+        if (audioSource != null && gameOverSound != null)
+        {
+            audioSource.PlayOneShot(gameOverSound);
+        }
+
         if (gameOverUIPanel != null)
         {
             gameOverUIPanel.SetActive(true);
@@ -87,47 +114,63 @@ public class HealthManager : MonoBehaviour
             Debug.LogError("GameOver UI Paneel is niet toegewezen in HealthManager!");
         }
 
-        // Pauzeer de tijd zodat het spel stopt
+        // Pauzeer de tijd en start input luisteren
         Time.timeScale = 0f;
+        StartListeningForReturn();
     }
 
-    /// <summary>
-    /// Keer terug naar het hoofdmenu - gebruik deze methode op de "Return to Main Menu" knop
-    /// </summary>
-    public void ReturnToMainMenu()
-    {
-        // Herstel de tijdsschaal
-        Time.timeScale = 1f;    
+    // --- GEFIXTE INPUT LOGICA ---
 
-        // Laad het hoofdmenu
-        if (!string.IsNullOrEmpty(mainMenuSceneName))
-        {
-            Debug.Log($"Laden van hoofdmenu scene: {mainMenuSceneName}");
-            SceneManager.LoadScene(mainMenuSceneName);
-        }
-        else
-        {
-            Debug.LogError("Hoofdmenu scène naam mist! Stel 'mainMenuSceneName' in de Inspector in.");
-        }
-    }
-
-    /// <summary>
-    /// Alternatieve methode om naar een specifieke scene te gaan
-    /// </summary>
     public void ReturnToMainMenu(string sceneName)
     {
-        // Herstel de tijdsschaal
+        // START NU DE COROUTINE OM DE CLEANUP VEILIG UIT TE VOEREN
+        StartCoroutine(DelayedCleanupAndSceneLoad(sceneName));
+    }
+
+    private void StartListeningForReturn()
+    {
+        CleanupReturnActionImmediate(); // Ruim direct op, als er al iets liep
+
+        returnAction = new InputAction(binding: ReturnToMenuControlPath);
+
+        // De callback roept de functie aan die de Coroutine start
+        returnAction.performed += ctx => ReturnToMainMenu(mainMenuSceneName);
+
+        returnAction.Enable();
+    }
+
+    // NIEUWE COROUTINE OM DE FOUT OP TE LOSSEN
+    IEnumerator DelayedCleanupAndSceneLoad(string sceneName)
+    {
+        // 1. Herstel de tijdsschaal
         Time.timeScale = 1f;
 
-        // Laad de opgegeven scene
+        // 2. Wacht één frame. DIT LOST DE FOUT OP!
+        yield return null;
+
+        // 3. Vernietig de Action nu het veilig is (buiten de callback)
+        CleanupReturnActionImmediate();
+
+        // 4. Laad de scène
         if (!string.IsNullOrEmpty(sceneName))
         {
-            Debug.Log($"Laden van scene: {sceneName}");
             SceneManager.LoadScene(sceneName);
         }
         else
         {
-            Debug.LogError("Scene naam parameter is leeg!");
+            Debug.LogError("Hoofdmenu scène naam mist!");
+        }
+    }
+
+    // Functie voor directe opruiming (gebruikt bij het starten van luisteren EN in de Coroutine)
+    private void CleanupReturnActionImmediate()
+    {
+        if (returnAction != null)
+        {
+            // BELANGRIJK: Zorg dat de delegate-verwijdering overeenkomt met de toevoeging
+            returnAction.performed -= ctx => ReturnToMainMenu(mainMenuSceneName);
+            returnAction.Dispose();
+            returnAction = null;
         }
     }
 }
