@@ -6,13 +6,26 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Animator animator;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private SoundEffectLibrary soundLibrary;
 
     private PlayerControls controls;
     private Vector2 moveInput;
     private bool playingFootsteps = false;
     public float footstepSpeed = 0.5f;
 
+    // Use a public property for external access
     [HideInInspector] public bool canMove = true;
+    public bool CanMove
+    {
+        get => canMove;
+        set
+        {
+            canMove = value;
+            if (!canMove) animator.SetFloat("Speed", 0f);
+            if (!canMove) StopFootsteps();
+        }
+    }
 
     private void Awake()
     {
@@ -35,7 +48,7 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
         moveInput = canMove ? context.ReadValue<Vector2>() : Vector2.zero;
     }
 
-    void Update()
+    private void Update()
     {
         if (!canMove)
         {
@@ -43,7 +56,7 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
             return;
         }
 
-        // Beweging
+        // Movement
         Vector3 movement = new Vector3(moveInput.x, 0f, 0f);
         transform.position += movement * moveSpeed * Time.deltaTime;
 
@@ -51,11 +64,12 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
         float speed = Mathf.Abs(moveInput.x);
         animator.SetFloat("Speed", speed);
 
-        if( speed > 0 && !playingFootsteps)
+        // Footstep logic
+        if (speed > 0 && !playingFootsteps)
         {
             StartFootsteps();
         }
-        else if(speed == 0)
+        else if (speed == 0)
         {
             StopFootsteps();
         }
@@ -67,20 +81,27 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
             spriteRenderer.flipX = true;
     }
 
-    void StartFootsteps()
+    private void StartFootsteps()
     {
         playingFootsteps = true;
         InvokeRepeating(nameof(PlayFootstep), 0f, footstepSpeed);
     }
 
-    void StopFootsteps()
+    private void StopFootsteps()
     {
         playingFootsteps = false;
         CancelInvoke(nameof(PlayFootstep));
     }
 
-    void PlayFootstep()
+    private void PlayFootstep()
     {
-        SoundEffectManager.Play("Footstep");
+        if (soundLibrary == null || audioSource == null) return;
+
+        // Get random footstep clip from library
+        AudioClip clip = soundLibrary.GetRandomClip("Footstep");
+        if (clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
     }
 }
