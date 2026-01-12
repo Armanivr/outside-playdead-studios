@@ -9,8 +9,9 @@ public class TriggerSpawnEvent : MonoBehaviour
     [Header("Instellingen voor UI")]
     public GameObject qteIntroPanel;
 
-    [Header("Player Reference")]
+    [Header("Player Reference (Optional - auto-finds if empty)")]
     public playerMovementScript playerMovement;
+    public PlayerCrouch playerCrouch;
 
     [Header("Animatie Trigger")]
     [Tooltip("Moet overeenkomen met de Animator Trigger op de vijand (bijv. 'Appear').")]
@@ -23,6 +24,22 @@ public class TriggerSpawnEvent : MonoBehaviour
     {
         if (other.CompareTag("Player") && !hasTriggered)
         {
+            // Auto-find player components if not assigned
+            if (playerMovement == null || playerCrouch == null)
+            {
+                GameObject player = other.gameObject;
+                if (playerMovement == null)
+                {
+                    playerMovement = player.GetComponent<playerMovementScript>();
+                    Debug.Log($"Auto-found playerMovementScript: {playerMovement != null}");
+                }
+                if (playerCrouch == null)
+                {
+                    playerCrouch = player.GetComponent<PlayerCrouch>();
+                    Debug.Log($"Auto-found PlayerCrouch: {playerCrouch != null}");
+                }
+            }
+
             // 1. Spawnen
             SpawnEnemy();
 
@@ -79,33 +96,46 @@ public class TriggerSpawnEvent : MonoBehaviour
 
             if (introManager != null && spawnedEnemy != null && introManager.quickTimePanel != null)
             {
-                // Deactiveer Spelerbeweging
-                if (playerMovement != null)
-                {
-                    playerMovement.canMove = false;
-                    Debug.Log("Spelerbeweging gedeactiveerd voor QTE.");
-                }
-                else
-                {
-                    Debug.LogWarning("PlayerMovement referentie is niet toegewezen!");
-                }
-
-                // Zoek het QuickTimeEvent component
+                // FIRST: Assign references to the QTE panel BEFORE anything else
                 QuickTimeEvent qte = introManager.quickTimePanel.GetComponent<QuickTimeEvent>();
 
                 if (qte != null)
                 {
-                    // Wijs de gespawnde vijand en de spelerreferentie toe
+                    // Wijs de gespawnde vijand en de spelerreferenties toe FIRST
                     qte.SetSpawnedEnemy(spawnedEnemy);
                     qte.playerMovement = playerMovement;
-                    Debug.Log("Enemy en player movement toegewezen aan QTE!");
+                    qte.playerCrouch = playerCrouch;
+                    Debug.Log($"=== ASSIGNED TO QTE: playerMovement={playerMovement != null}, playerCrouch={playerCrouch != null} ===");
                 }
                 else
                 {
                     Debug.LogWarning("QuickTimeEvent component niet gevonden op het quickTimePanel!");
+                    return;
                 }
 
-                // Activeer het Intro Paneel
+                // THEN: Deactiveer Spelerbeweging
+                if (playerMovement != null)
+                {
+                    playerMovement.canMove = false;
+                    Debug.Log("TriggerSpawn: Spelerbeweging gedeactiveerd voor QTE.");
+                }
+                else
+                {
+                    Debug.LogError("TriggerSpawn: PlayerMovement is NULL! Can't disable movement!");
+                }
+
+                // Deactiveer PlayerCrouch
+                if (playerCrouch != null)
+                {
+                    playerCrouch.canMove = false;
+                    Debug.Log("TriggerSpawn: PlayerCrouch gedeactiveerd voor QTE.");
+                }
+                else
+                {
+                    Debug.LogError("TriggerSpawn: PlayerCrouch is NULL! Can't disable crouch!");
+                }
+
+                // FINALLY: Activeer het Intro Paneel (this will eventually activate the QTE panel)
                 qteIntroPanel.SetActive(true);
                 Debug.Log("QTE Intro Panel geactiveerd.");
             }

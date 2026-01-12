@@ -41,8 +41,10 @@ public class QuickTimeEvent : MonoBehaviour
 
     public GameObject spawnedEnemy;
     [HideInInspector] public playerMovementScript playerMovement;
+    [HideInInspector] public PlayerCrouch playerCrouch;
 
     private Animator enemyAnimator;
+    private bool qteInProgress = false;
 
     // --- INITIALISATIE ---
 
@@ -57,14 +59,54 @@ public class QuickTimeEvent : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // FORCE DISABLE MOVEMENT EVERY FRAME WHILE QTE IS ACTIVE
+        if (qteInProgress)
+        {
+            if (playerMovement != null)
+            {
+                playerMovement.canMove = false;
+            }
+            if (playerCrouch != null)
+            {
+                playerCrouch.canMove = false;
+            }
+        }
+    }
+
     private void OnEnable()
     {
+        qteInProgress = true;
         isActive = true;
         currentSuccesses = 0;
+
+        Debug.Log("=== QTE OnEnable called ===");
 
         if (spawnedEnemy != null)
         {
             enemyAnimator = spawnedEnemy.GetComponent<Animator>();
+        }
+
+        // Disable both movement scripts when QTE starts
+        if (playerMovement != null)
+        {
+            playerMovement.canMove = false;
+            Debug.Log("QTE: playerMovement.canMove = FALSE");
+        }
+        else
+        {
+            Debug.LogError("QTE: playerMovement is NULL in OnEnable!");
+        }
+
+        if (playerCrouch != null)
+        {
+            playerCrouch.canMove = false;
+            Debug.Log("QTE: playerCrouch.canMove = FALSE");
+        }
+        else
+        {
+            Debug.LogError("QTE: playerCrouch is NULL in OnEnable!");
         }
 
         StartNewQTE();
@@ -72,6 +114,7 @@ public class QuickTimeEvent : MonoBehaviour
 
     private void OnDisable()
     {
+        qteInProgress = false;
         StopListeningForInput();
     }
 
@@ -296,18 +339,25 @@ public class QuickTimeEvent : MonoBehaviour
             // Vernietig hier niet, want we willen dat de vijand zichtbaar blijft in het gepauzeerde scherm.
 
             // De QTE UI kan worden gedeactiveerd als deze boven het Game Over scherm komt
+            qteInProgress = false;
             gameObject.SetActive(false);
 
             yield break; // Stop de coroutine hier
         }
 
         // NORMALE AFSLUITING (geen Game Over):
+        qteInProgress = false;
 
         // SPELERBEWEGING WEER INSCHAKELEN
         if (playerMovement != null)
         {
             playerMovement.canMove = true;
-            Debug.Log("Spelerbeweging ingeschakeld na QTE.");
+            Debug.Log("QTE: playerMovement.canMove = TRUE (END)");
+        }
+        if (playerCrouch != null)
+        {
+            playerCrouch.canMove = true;
+            Debug.Log("QTE: playerCrouch.canMove = TRUE (END)");
         }
 
         // Vijand Vernietigen

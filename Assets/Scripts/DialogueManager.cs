@@ -40,6 +40,7 @@ public class DialogueManager : MonoBehaviour
     [Header("Player Settings")]
     public string playerTag = "Player";
     private playerMovementScript activePlayerScript;
+    private PlayerCrouch activeCrouchScript;
     public float typingSpeed = 0.05f; // Time between letters
 
     private int currentLine = 0;
@@ -97,6 +98,9 @@ public class DialogueManager : MonoBehaviour
         {
             activePlayerScript = player.GetComponent<playerMovementScript>();
             if (activePlayerScript != null) activePlayerScript.canMove = false;
+
+            activeCrouchScript = player.GetComponent<PlayerCrouch>();
+            if (activeCrouchScript != null) activeCrouchScript.canMove = false;
         }
 
         ShowNextLine();
@@ -120,7 +124,17 @@ public class DialogueManager : MonoBehaviour
         {
             line.speaker.headImage.gameObject.SetActive(true);
             if (line.speaker.headAnimator != null)
-                line.speaker.headAnimator.Play("Talking");
+            {
+                // Check if the animator has the "Talking" state before playing it
+                if (HasState(line.speaker.headAnimator, "Talking"))
+                {
+                    line.speaker.headAnimator.Play("Talking");
+                }
+                else
+                {
+                    Debug.LogWarning($"Animator on {line.speaker.characterName} does not have a 'Talking' state.");
+                }
+            }
         }
 
         // Start the Typewriter effect
@@ -138,7 +152,6 @@ public class DialogueManager : MonoBehaviour
 
         currentLine++;
     }
-
 
     // This is the "Magic" function
     IEnumerator TypeSentence(string sentence)
@@ -168,6 +181,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePaused = true;
         if (dialogueBox != null) dialogueBox.SetActive(false);
         if (activePlayerScript != null) activePlayerScript.canMove = true;
+        if (activeCrouchScript != null) activeCrouchScript.canMove = true;
     }
 
     private void EndDialogue()
@@ -175,8 +189,27 @@ public class DialogueManager : MonoBehaviour
         dialogueActive = false;
         if (dialogueBox != null) dialogueBox.SetActive(false);
         if (activePlayerScript != null) activePlayerScript.canMove = true;
+        if (activeCrouchScript != null) activeCrouchScript.canMove = true;
 
         if (!string.IsNullOrEmpty(nextSceneName))
             SceneManager.LoadScene(nextSceneName);
+    }
+
+    // Helper method to check if an animator has a specific state
+    private bool HasState(Animator animator, string stateName)
+    {
+        if (animator == null || animator.runtimeAnimatorController == null)
+            return false;
+
+        // Check all layers for the state
+        for (int i = 0; i < animator.layerCount; i++)
+        {
+            if (animator.HasState(i, Animator.StringToHash(stateName)))
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
