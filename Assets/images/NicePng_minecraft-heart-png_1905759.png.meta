@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      NicePng_minecraft-heart-png_1905759_0: -1780043118051869129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
