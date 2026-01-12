@@ -9605,6 +9605,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &805783845 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6001297238611138282, guid: b1cc03c62e9eb0f4ca54dc8f1950e259, type: 3}
+  m_PrefabInstance: {fileID: 1515272924}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &806687100
 GameObject:
   m_ObjectHideFlags: 0
@@ -13559,7 +13564,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1130001999}
-  - component: {fileID: 1130001998}
   - component: {fileID: 1130001997}
   m_Layer: 0
   m_Name: GAME_MANAGER
@@ -13586,21 +13590,6 @@ MonoBehaviour:
   - {fileID: 256917592}
   - {fileID: 1113642683}
   - {fileID: 1138749667}
-  gameOverUIPanel: {fileID: 0}
-  mainMenuSceneName: MainMenu
---- !u!114 &1130001998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130001996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae94ee8448c1e944589c3d96135848b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthIcons: []
   gameOverUIPanel: {fileID: 0}
   mainMenuSceneName: MainMenu
 --- !u!4 &1130001999
@@ -16989,11 +16978,11 @@ PrefabInstance:
     - target: {fileID: 4167623639204051726, guid: b1cc03c62e9eb0f4ca54dc8f1950e259, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1604255581}
     - target: {fileID: 4167623639204051726, guid: b1cc03c62e9eb0f4ca54dc8f1950e259, type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 805783845}
     - target: {fileID: 4167623639204051726, guid: b1cc03c62e9eb0f4ca54dc8f1950e259, type: 3}
       propertyPath: smoothTime
       value: 0.5
@@ -24253,7 +24242,7 @@ PrefabInstance:
     - target: {fileID: 4066920572770266565, guid: 1802a54229f6ae54aa68c69b1bf3493d, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1604255581}
     - target: {fileID: 6713830919108411556, guid: 1802a54229f6ae54aa68c69b1bf3493d, type: 3}
       propertyPath: m_Name
       value: Character 2 Idle_0

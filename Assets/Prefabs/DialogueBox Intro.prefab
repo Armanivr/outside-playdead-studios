@@ -598,6 +598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 8959304909861359179}
+  dialogueBox: {fileID: 0}
+  typingSpeed: 0.05
+  playerTag: Player
   characters:
   - characterName: Jamal
     headImage: {fileID: 5789577464578034805}
@@ -617,118 +620,141 @@ MonoBehaviour:
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: Come on, dude, you need to get out sometimes!
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: You barely do anything except play your waifu games
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: Yeah man, you're younger than me, but have spent more time inside
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: Oh shut up guys, you know I hate not being inside!
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: Exactly, that's your problem
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: Aaaaaaaand...
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: That's exactly why Quinten and I scheduled a hiking trip in Sweden!
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: Yup
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: W-what?!
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: Come on, don't be like that, Lucas...
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: Yeah bro! Just think about it, the fresh air, the tall trees and the whisteling
       birds...
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: hunting for food, no internet and the best of course, no waifu's
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: n-no waifus..?
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: Uh huh, no waifu's
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: '*gulp*'
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: uhm Quinten, Jamal, I think you'd better do without me. I'll just stay
       here and play my anime games
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: ...
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: ...
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: H-hey...w-what are you guys- NOOOOOO!!!!
+    pauseAfterLine: 0
   - speaker:
       characterName: Narrator
       headImage: {fileID: 5924943272904134078}
       headAnimator: {fileID: 0}
     text: And that's how our protagonists found their way to a forest in Sweden...named...Dimskog
+    pauseAfterLine: 0
   - speaker:
       characterName: Jamal
       headImage: {fileID: 5789577464578034805}
       headAnimator: {fileID: 2125702402984020702}
     text: Here we are Lucas, Dimskog. Ready to go?
+    pauseAfterLine: 0
   - speaker:
       characterName: Quinten
       headImage: {fileID: 5052157614932224734}
       headAnimator: {fileID: 2834902103523617484}
     text: You can take the lead, Lucas. Jamal and I'll follow you. Explore a little...
+    pauseAfterLine: 0
   - speaker:
       characterName: Lucas
       headImage: {fileID: 1258789823426371385}
       headAnimator: {fileID: 8613224844893246545}
     text: I hate you guys...
+    pauseAfterLine: 0
   nextSceneName: GameScene
 --- !u!1 &8236004682576419486
 GameObject:
