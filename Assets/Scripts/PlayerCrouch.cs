@@ -20,8 +20,17 @@ public class PlayerCrouch : MonoBehaviour
     private bool crouchRequested;
     private float currentSpeed;
 
+    [HideInInspector] public bool canMove = true;
+
     void Update()
     {
+        if (!canMove)
+        {
+            moveInput = Vector2.zero;
+            animator.SetFloat("Speed", 0f);
+            return;
+        }
+
         // Controller input: Xbox B button
         if (Gamepad.current != null)
         {
@@ -45,6 +54,12 @@ public class PlayerCrouch : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canMove)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+
         // Toggle crouch
         if (crouchRequested && !isCrouching)
             StartCrouch();

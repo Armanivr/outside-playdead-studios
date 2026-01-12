@@ -32,14 +32,21 @@ public class playerMovementScript : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void OnMove(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        moveInput = canMove ? context.ReadValue<Vector2>() : Vector2.zero;
+        if (!canMove)
+        {
+            moveInput = Vector2.zero;
+            return;
+        }
+        moveInput = context.ReadValue<Vector2>();
     }
 
     void Update()
     {
         if (!canMove)
         {
+            moveInput = Vector2.zero; // Clear any stored input
             animator.SetFloat("Speed", 0f);
+            StopFootsteps(); // Stop footstep sounds
             return;
         }
 
