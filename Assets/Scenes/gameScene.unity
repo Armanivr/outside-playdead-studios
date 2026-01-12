@@ -3152,6 +3152,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 1869623549}
   qteIntroPanel: {fileID: 1928772927}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
   appearTrigger: Appear
 --- !u!1 &269342187
 GameObject:
@@ -5571,6 +5572,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2086434758240662741, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2195399660869726107, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
       propertyPath: dialogueManager
       value: 
@@ -6751,6 +6756,7 @@ MonoBehaviour:
   requiredPath: 
   spawnedEnemy: {fileID: 0}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
 --- !u!114 &564654314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6941,6 +6947,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 571716588}
   qteIntroPanel: {fileID: 1928772927}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
   appearTrigger: Appear
 --- !u!61 &586039018
 BoxCollider2D:
@@ -7124,6 +7131,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 492657220}
   qteIntroPanel: {fileID: 1928772927}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
   appearTrigger: Appear
 --- !u!61 &602069959
 BoxCollider2D:
@@ -8853,58 +8861,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 78.22995, y: -1.0242, z: 0}
   m_LocalScale: {x: 1, y: 1.0224, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &772420892
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 772420894}
-  - component: {fileID: 772420893}
-  m_Layer: 0
-  m_Name: GAME_MANAGER
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &772420893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772420892}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae94ee8448c1e944589c3d96135848b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthIcons:
-  - {fileID: 745105397}
-  - {fileID: 269342189}
-  - {fileID: 256917592}
-  - {fileID: 1113642683}
-  - {fileID: 1138749667}
-  gameOverUIPanel: {fileID: 0}
-  mainMenuSceneName: MainMenu
---- !u!4 &772420894
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772420892}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.0406, y: 468.7859, z: -0.76574725}
-  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -16909,6 +16865,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 2003462681}
   qteIntroPanel: {fileID: 1928772927}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
   appearTrigger: Appear
 --- !u!61 &1419385945
 BoxCollider2D:
@@ -21711,6 +21668,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 650023105}
   qteIntroPanel: {fileID: 1928772927}
   playerMovement: {fileID: 0}
+  playerCrouch: {fileID: 0}
   appearTrigger: Appear
 --- !u!61 &1879347943
 BoxCollider2D:
@@ -24712,6 +24670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character 3 Idle_0
       objectReference: {fileID: 0}
+    - target: {fileID: 9174532922749772948, guid: 50b5320fe824bb0489eef3733694d111, type: 3}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25140,7 +25102,6 @@ SceneRoots:
   - {fileID: 139662424}
   - {fileID: 694444658}
   - {fileID: 1130001999}
-  - {fileID: 772420894}
   - {fileID: 492522739}
   - {fileID: 6017017712996657457}
   - {fileID: 3554208031746460062}
