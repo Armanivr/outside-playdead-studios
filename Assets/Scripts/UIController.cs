@@ -3,7 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    public void OnPlayClick() 
+    void Update()
+    {
+        // This constantly checks if the Controller "A" button is pressed
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            OnPlayClick();
+        }
+    }
+
+    // This runs when you press the Controller button OR click the UI Button with a mouse
+    public void OnPlayClick()
     {
         SceneManager.LoadScene("IntroScene");
     }
@@ -12,7 +22,8 @@ public class UIController : MonoBehaviour
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#endif
+#else
         Application.Quit();
+#endif
     }
 }

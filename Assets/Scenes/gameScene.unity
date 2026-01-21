@@ -5576,6 +5576,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2086434758240662741, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2195399660869726107, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
       propertyPath: dialogueManager
       value: 
@@ -5586,11 +5590,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5635498841524177208, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.92
+      value: 15.85
       objectReference: {fileID: 0}
     - target: {fileID: 5635498841524177208, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.01
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5635498841524177208, guid: 3fe7283064afa7f4b9def8d69f60c563, type: 3}
       propertyPath: m_LocalPosition.z
